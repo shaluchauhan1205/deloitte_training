@@ -1,0 +1,1777 @@
+SQL> select nvl(tochar(commission_pct,'n.a')) from employees;
+select nvl(tochar(commission_pct,'n.a')) from employees
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+SQL> select nvl(tochar(commission_pct),'n.a') from employees;
+select nvl(tochar(commission_pct),'n.a') from employees
+           *
+ERROR at line 1:
+ORA-00904: "TOCHAR": invalid identifier 
+
+
+SQL> select nvl(to_char(commission_pct),'n.a') from employees;
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+.4                                                                              
+.3                                                                              
+.3                                                                              
+.3                                                                              
+.2                                                                              
+.3                                                                              
+.25                                                                             
+.25                                                                             
+.2                                                                              
+.2                                                                              
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+.15                                                                             
+.35                                                                             
+.35                                                                             
+.35                                                                             
+.3                                                                              
+.3                                                                              
+.25                                                                             
+.25                                                                             
+.15                                                                             
+.1                                                                              
+.1                                                                              
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+.1                                                                              
+.1                                                                              
+.25                                                                             
+.2                                                                              
+.2                                                                              
+.15                                                                             
+.15                                                                             
+.1                                                                              
+.3                                                                              
+.25                                                                             
+.2                                                                              
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+.2                                                                              
+.15                                                                             
+.1                                                                              
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+107 rows selected.
+
+SQL> select nvl(to_char(commission_pct),'n.a') from employees;
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+.4                                                                              
+.3                                                                              
+.3                                                                              
+.3                                                                              
+.2                                                                              
+.3                                                                              
+.25                                                                             
+.25                                                                             
+.2                                                                              
+.2                                                                              
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+.15                                                                             
+.35                                                                             
+.35                                                                             
+.35                                                                             
+.3                                                                              
+.3                                                                              
+.25                                                                             
+.25                                                                             
+.15                                                                             
+.1                                                                              
+.1                                                                              
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+.1                                                                              
+.1                                                                              
+.25                                                                             
+.2                                                                              
+.2                                                                              
+.15                                                                             
+.15                                                                             
+.1                                                                              
+.3                                                                              
+.25                                                                             
+.2                                                                              
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+.2                                                                              
+.15                                                                             
+.1                                                                              
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+NVL(TO_CHAR(COMMISSION_PCT),'N.A')                                              
+----------------------------------------                                        
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+n.a                                                                             
+
+107 rows selected.
+
+SQL> select employee_id,salary "old salary", salary+(salary*1.2) "new salary" from employees;
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        100      24000      52800                                               
+        101      17000      37400                                               
+        102      17000      37400                                               
+        103       9000      19800                                               
+        104       6000      13200                                               
+        105       4800      10560                                               
+        106       4800      10560                                               
+        107       4200       9240                                               
+        108      12008    26417.6                                               
+        109       9000      19800                                               
+        110       8200      18040                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        111       7700      16940                                               
+        112       7800      17160                                               
+        113       6900      15180                                               
+        114      11000      24200                                               
+        115       3100       6820                                               
+        116       2900       6380                                               
+        117       2800       6160                                               
+        118       2600       5720                                               
+        119       2500       5500                                               
+        120       8000      17600                                               
+        121       8200      18040                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        122       7900      17380                                               
+        123       6500      14300                                               
+        124       5800      12760                                               
+        125       3200       7040                                               
+        126       2700       5940                                               
+        127       2400       5280                                               
+        128       2200       4840                                               
+        129       3300       7260                                               
+        130       2800       6160                                               
+        131       2500       5500                                               
+        132       2100       4620                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        133       3300       7260                                               
+        134       2900       6380                                               
+        135       2400       5280                                               
+        136       2200       4840                                               
+        137       3600       7920                                               
+        138       3200       7040                                               
+        139       2700       5940                                               
+        140       2500       5500                                               
+        141       3500       7700                                               
+        142       3100       6820                                               
+        143       2600       5720                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        144       2500       5500                                               
+        145      14000      30800                                               
+        146      13500      29700                                               
+        147      12000      26400                                               
+        148      11000      24200                                               
+        149      10500      23100                                               
+        150      10000      22000                                               
+        151       9500      20900                                               
+        152       9000      19800                                               
+        153       8000      17600                                               
+        154       7500      16500                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        155       7000      15400                                               
+        156      10000      22000                                               
+        157       9500      20900                                               
+        158       9000      19800                                               
+        159       8000      17600                                               
+        160       7500      16500                                               
+        161       7000      15400                                               
+        162      10500      23100                                               
+        163       9500      20900                                               
+        164       7200      15840                                               
+        165       6800      14960                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        166       6400      14080                                               
+        167       6200      13640                                               
+        168      11500      25300                                               
+        169      10000      22000                                               
+        170       9600      21120                                               
+        171       7400      16280                                               
+        172       7300      16060                                               
+        173       6100      13420                                               
+        174      11000      24200                                               
+        175       8800      19360                                               
+        176       8600      18920                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        177       8400      18480                                               
+        178       7000      15400                                               
+        179       6200      13640                                               
+        180       3200       7040                                               
+        181       3100       6820                                               
+        182       2500       5500                                               
+        183       2800       6160                                               
+        184       4200       9240                                               
+        185       4100       9020                                               
+        186       3400       7480                                               
+        187       3000       6600                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        188       3800       8360                                               
+        189       3600       7920                                               
+        190       2900       6380                                               
+        191       2500       5500                                               
+        192       4000       8800                                               
+        193       3900       8580                                               
+        194       3200       7040                                               
+        195       2800       6160                                               
+        196       3100       6820                                               
+        197       3000       6600                                               
+        198       2600       5720                                               
+
+EMPLOYEE_ID old salary new salary                                               
+----------- ---------- ----------                                               
+        199       2600       5720                                               
+        200       4400       9680                                               
+        201      13000      28600                                               
+        202       6000      13200                                               
+        203       6500      14300                                               
+        204      10000      22000                                               
+        205      12008    26417.6                                               
+        206       8300      18260                                               
+
+107 rows selected.
+
+SQL> decode(job_id,'SA_REP',salary*1.3,
+SP2-0734: unknown command beginning "decode(job..." - rest of line ignored.
+SQL> decode(job_id,'SA_REP',salary*1.3,'IT_PROG',salary*1.2,'SA_MAN',salary*1.1,salary) newsal from employees;
+SP2-0734: unknown command beginning "decode(job..." - rest of line ignored.
+SQL> decode(JOB_ID,'SA_REP',salary*1.3,'IT_PROG',salary*1.2,'SA_MAN',salary*1.1,salary) newsal from employees;
+SP2-0734: unknown command beginning "decode(JOB..." - rest of line ignored.
+SQL> select  decode(JOB_ID,'SA_REP',salary*1.3,'IT_PROG',salary*1.2,'SA_MAN',salary*1.1,salary) newsal from employees;
+
+    NEWSAL                                                                      
+----------                                                                      
+     24000                                                                      
+     17000                                                                      
+     17000                                                                      
+     10800                                                                      
+      7200                                                                      
+      5760                                                                      
+      5760                                                                      
+      5040                                                                      
+     12008                                                                      
+      9000                                                                      
+      8200                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      7700                                                                      
+      7800                                                                      
+      6900                                                                      
+     11000                                                                      
+      3100                                                                      
+      2900                                                                      
+      2800                                                                      
+      2600                                                                      
+      2500                                                                      
+      8000                                                                      
+      8200                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      7900                                                                      
+      6500                                                                      
+      5800                                                                      
+      3200                                                                      
+      2700                                                                      
+      2400                                                                      
+      2200                                                                      
+      3300                                                                      
+      2800                                                                      
+      2500                                                                      
+      2100                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      3300                                                                      
+      2900                                                                      
+      2400                                                                      
+      2200                                                                      
+      3600                                                                      
+      3200                                                                      
+      2700                                                                      
+      2500                                                                      
+      3500                                                                      
+      3100                                                                      
+      2600                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      2500                                                                      
+     15400                                                                      
+     14850                                                                      
+     13200                                                                      
+     12100                                                                      
+     11550                                                                      
+     13000                                                                      
+     12350                                                                      
+     11700                                                                      
+     10400                                                                      
+      9750                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      9100                                                                      
+     13000                                                                      
+     12350                                                                      
+     11700                                                                      
+     10400                                                                      
+      9750                                                                      
+      9100                                                                      
+     13650                                                                      
+     12350                                                                      
+      9360                                                                      
+      8840                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      8320                                                                      
+      8060                                                                      
+     14950                                                                      
+     13000                                                                      
+     12480                                                                      
+      9620                                                                      
+      9490                                                                      
+      7930                                                                      
+     14300                                                                      
+     11440                                                                      
+     11180                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+     10920                                                                      
+      9100                                                                      
+      8060                                                                      
+      3200                                                                      
+      3100                                                                      
+      2500                                                                      
+      2800                                                                      
+      4200                                                                      
+      4100                                                                      
+      3400                                                                      
+      3000                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      3800                                                                      
+      3600                                                                      
+      2900                                                                      
+      2500                                                                      
+      4000                                                                      
+      3900                                                                      
+      3200                                                                      
+      2800                                                                      
+      3100                                                                      
+      3000                                                                      
+      2600                                                                      
+
+    NEWSAL                                                                      
+----------                                                                      
+      2600                                                                      
+      4400                                                                      
+     13000                                                                      
+      6000                                                                      
+      6500                                                                      
+     10000                                                                      
+     12008                                                                      
+      8300                                                                      
+
+107 rows selected.
+
+SQL> select employee_id,salary "old sal ", decode(JOB_ID,'SA_REP',salary*1.3,'IT_PROG',salary*1.2,'SA_MAN',salary*1.1,salary) newsal from employees;
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        100      24000      24000                                               
+        101      17000      17000                                               
+        102      17000      17000                                               
+        103       9000      10800                                               
+        104       6000       7200                                               
+        105       4800       5760                                               
+        106       4800       5760                                               
+        107       4200       5040                                               
+        108      12008      12008                                               
+        109       9000       9000                                               
+        110       8200       8200                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        111       7700       7700                                               
+        112       7800       7800                                               
+        113       6900       6900                                               
+        114      11000      11000                                               
+        115       3100       3100                                               
+        116       2900       2900                                               
+        117       2800       2800                                               
+        118       2600       2600                                               
+        119       2500       2500                                               
+        120       8000       8000                                               
+        121       8200       8200                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        122       7900       7900                                               
+        123       6500       6500                                               
+        124       5800       5800                                               
+        125       3200       3200                                               
+        126       2700       2700                                               
+        127       2400       2400                                               
+        128       2200       2200                                               
+        129       3300       3300                                               
+        130       2800       2800                                               
+        131       2500       2500                                               
+        132       2100       2100                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        133       3300       3300                                               
+        134       2900       2900                                               
+        135       2400       2400                                               
+        136       2200       2200                                               
+        137       3600       3600                                               
+        138       3200       3200                                               
+        139       2700       2700                                               
+        140       2500       2500                                               
+        141       3500       3500                                               
+        142       3100       3100                                               
+        143       2600       2600                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        144       2500       2500                                               
+        145      14000      15400                                               
+        146      13500      14850                                               
+        147      12000      13200                                               
+        148      11000      12100                                               
+        149      10500      11550                                               
+        150      10000      13000                                               
+        151       9500      12350                                               
+        152       9000      11700                                               
+        153       8000      10400                                               
+        154       7500       9750                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        155       7000       9100                                               
+        156      10000      13000                                               
+        157       9500      12350                                               
+        158       9000      11700                                               
+        159       8000      10400                                               
+        160       7500       9750                                               
+        161       7000       9100                                               
+        162      10500      13650                                               
+        163       9500      12350                                               
+        164       7200       9360                                               
+        165       6800       8840                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        166       6400       8320                                               
+        167       6200       8060                                               
+        168      11500      14950                                               
+        169      10000      13000                                               
+        170       9600      12480                                               
+        171       7400       9620                                               
+        172       7300       9490                                               
+        173       6100       7930                                               
+        174      11000      14300                                               
+        175       8800      11440                                               
+        176       8600      11180                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        177       8400      10920                                               
+        178       7000       9100                                               
+        179       6200       8060                                               
+        180       3200       3200                                               
+        181       3100       3100                                               
+        182       2500       2500                                               
+        183       2800       2800                                               
+        184       4200       4200                                               
+        185       4100       4100                                               
+        186       3400       3400                                               
+        187       3000       3000                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        188       3800       3800                                               
+        189       3600       3600                                               
+        190       2900       2900                                               
+        191       2500       2500                                               
+        192       4000       4000                                               
+        193       3900       3900                                               
+        194       3200       3200                                               
+        195       2800       2800                                               
+        196       3100       3100                                               
+        197       3000       3000                                               
+        198       2600       2600                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        199       2600       2600                                               
+        200       4400       4400                                               
+        201      13000      13000                                               
+        202       6000       6000                                               
+        203       6500       6500                                               
+        204      10000      10000                                               
+        205      12008      12008                                               
+        206       8300       8300                                               
+
+107 rows selected.
+
+SQL> select employee_id,salary "old sal ", CASE WHEN JOB_ID='SA_REP'THEN salary*1.3 WHEN'IT_PROG'THEN salary*1.2 WHEN'SA_MAN'THEN salary*1.1 ELSE salary END newsal from employees;
+select employee_id,salary "old sal ", CASE WHEN JOB_ID='SA_REP'THEN salary*1.3 WHEN'IT_PROG'THEN salary*1.2 WHEN'SA_MAN'THEN salary*1.1 ELSE salary END newsal from employees
+                                                                                            *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select employee_id,salary "old sal ", CASE WHEN JOB_ID='SA_REP'THEN salary*1.3 WHEN JOB_ID='IT_PROG'THEN salary*1.2 WHEN JOB_ID='SA_MAN'THEN salary*1.1 ELSE salary END newsal from employees;
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        100      24000      24000                                               
+        101      17000      17000                                               
+        102      17000      17000                                               
+        103       9000      10800                                               
+        104       6000       7200                                               
+        105       4800       5760                                               
+        106       4800       5760                                               
+        107       4200       5040                                               
+        108      12008      12008                                               
+        109       9000       9000                                               
+        110       8200       8200                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        111       7700       7700                                               
+        112       7800       7800                                               
+        113       6900       6900                                               
+        114      11000      11000                                               
+        115       3100       3100                                               
+        116       2900       2900                                               
+        117       2800       2800                                               
+        118       2600       2600                                               
+        119       2500       2500                                               
+        120       8000       8000                                               
+        121       8200       8200                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        122       7900       7900                                               
+        123       6500       6500                                               
+        124       5800       5800                                               
+        125       3200       3200                                               
+        126       2700       2700                                               
+        127       2400       2400                                               
+        128       2200       2200                                               
+        129       3300       3300                                               
+        130       2800       2800                                               
+        131       2500       2500                                               
+        132       2100       2100                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        133       3300       3300                                               
+        134       2900       2900                                               
+        135       2400       2400                                               
+        136       2200       2200                                               
+        137       3600       3600                                               
+        138       3200       3200                                               
+        139       2700       2700                                               
+        140       2500       2500                                               
+        141       3500       3500                                               
+        142       3100       3100                                               
+        143       2600       2600                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        144       2500       2500                                               
+        145      14000      15400                                               
+        146      13500      14850                                               
+        147      12000      13200                                               
+        148      11000      12100                                               
+        149      10500      11550                                               
+        150      10000      13000                                               
+        151       9500      12350                                               
+        152       9000      11700                                               
+        153       8000      10400                                               
+        154       7500       9750                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        155       7000       9100                                               
+        156      10000      13000                                               
+        157       9500      12350                                               
+        158       9000      11700                                               
+        159       8000      10400                                               
+        160       7500       9750                                               
+        161       7000       9100                                               
+        162      10500      13650                                               
+        163       9500      12350                                               
+        164       7200       9360                                               
+        165       6800       8840                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        166       6400       8320                                               
+        167       6200       8060                                               
+        168      11500      14950                                               
+        169      10000      13000                                               
+        170       9600      12480                                               
+        171       7400       9620                                               
+        172       7300       9490                                               
+        173       6100       7930                                               
+        174      11000      14300                                               
+        175       8800      11440                                               
+        176       8600      11180                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        177       8400      10920                                               
+        178       7000       9100                                               
+        179       6200       8060                                               
+        180       3200       3200                                               
+        181       3100       3100                                               
+        182       2500       2500                                               
+        183       2800       2800                                               
+        184       4200       4200                                               
+        185       4100       4100                                               
+        186       3400       3400                                               
+        187       3000       3000                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        188       3800       3800                                               
+        189       3600       3600                                               
+        190       2900       2900                                               
+        191       2500       2500                                               
+        192       4000       4000                                               
+        193       3900       3900                                               
+        194       3200       3200                                               
+        195       2800       2800                                               
+        196       3100       3100                                               
+        197       3000       3000                                               
+        198       2600       2600                                               
+
+EMPLOYEE_ID   old sal      NEWSAL                                               
+----------- ---------- ----------                                               
+        199       2600       2600                                               
+        200       4400       4400                                               
+        201      13000      13000                                               
+        202       6000       6000                                               
+        203       6500       6500                                               
+        204      10000      10000                                               
+        205      12008      12008                                               
+        206       8300       8300                                               
+
+107 rows selected.
+
+SQL> select min(last_name),max(last_name) from employees;
+
+MIN(LAST_NAME)            MAX(LAST_NAME)                                        
+------------------------- -------------------------                             
+Abel                      Zlotkey                                               
+
+SQL> select department_id,max(salary),min(salary),avg(salary),sum(salary) from employees group by department_id;
+
+DEPARTMENT_ID MAX(SALARY) MIN(SALARY) AVG(SALARY) SUM(SALARY)                   
+------------- ----------- ----------- ----------- -----------                   
+          100       12008        6900  8601.33333       51608                   
+           30       11000        2500        4150       24900                   
+                     7000        7000        7000        7000                   
+           90       24000       17000  19333.3333       58000                   
+           20       13000        6000        9500       19000                   
+           70       10000       10000       10000       10000                   
+          110       12008        8300       10154       20308                   
+           50        8200        2100  3475.55556      156400                   
+           80       14000        6100  8955.88235      304500                   
+           40        6500        6500        6500        6500                   
+           60        9000        4200        5760       28800                   
+
+DEPARTMENT_ID MAX(SALARY) MIN(SALARY) AVG(SALARY) SUM(SALARY)                   
+------------- ----------- ----------- ----------- -----------                   
+           10        4400        4400        4400        4400                   
+
+12 rows selected.
+
+SQL> select department_id,max(salary),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 orderby department_id;
+select department_id,max(salary),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 orderby department_id
+                                                                                                              *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select department_id,max(salary),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 order by department_id;
+select department_id,max(salary),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 order by department_id
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> select department_id,max(salary),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 group by department_id;
+
+DEPARTMENT_ID MAX(SALARY) MIN(SALARY) AVG(SALARY) SUM(SALARY)                   
+------------- ----------- ----------- ----------- -----------                   
+           90       24000       17000  19333.3333       58000                   
+           70       10000       10000       10000       10000                   
+          110       12008        8300       10154       20308                   
+
+SQL> select hire_date>='01-JAN-2003' group by department_id from employees having avg(salary)>=10000 group by department_id order by department_id from employees;
+select hire_date>='01-JAN-2003' group by department_id from employees having avg(salary)>=10000 group by department_id order by department_id from employees
+                *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select hire_date>='01-JAN-2003' having avg(salary)>=10000 group by department_id order by department_id from  employees;
+ select hire_date>='01-JAN-2003' having avg(salary)>=10000 group by department_id order by department_id from  employees
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select hire_date>='01-JAN-2003',avg(salary), having avg(salary)>=10000 group by department_id order by department_id from  employees;
+ select hire_date>='01-JAN-2003',avg(salary), having avg(salary)>=10000 group by department_id order by department_id from  employees
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select hire_date>='01-JAN-2003',avg(salary) from employees having avg(salary)>=10000 group by department_id order by department_id ;
+ select hire_date>='01-JAN-2003',avg(salary) from employees having avg(salary)>=10000 group by department_id order by department_id 
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  select hire_date>='01-JAN-2003',avg(salary) having avg(salary)>=10000 group by department_id order by department_id;
+ select hire_date>='01-JAN-2003',avg(salary) having avg(salary)>=10000 group by department_id order by department_id
+                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select department_id,round(max(salary),1),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 order by department_id;
+select department_id,round(max(salary),1),min(salary),avg(salary),sum(salary) from employees having avg(salary)>=10000 order by department_id
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> spool off
+SQL> spool d:/30dec/day2 append
+SQL> select department_id,round(max(salary),0),round(min(salary),0),round(avg(salary),0),round(sum(salary),0) from employees ;
+select department_id,round(max(salary),0),round(min(salary),0),round(avg(salary),0),round(sum(salary),0) from employees 
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> select department_id,round(max(salary),0),round(min(salary),0),round(avg(salary),0),round(sum(salary),0) from employees group by department_id;
+
+DEPARTMENT_ID ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)    
+------------- -------------------- -------------------- --------------------    
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+          100                12008                 6900                 8601    
+               51608                                                            
+                                                                                
+           30                11000                 2500                 4150    
+               24900                                                            
+                                                                                
+                              7000                 7000                 7000    
+                7000                                                            
+                                                                                
+
+DEPARTMENT_ID ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)    
+------------- -------------------- -------------------- --------------------    
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+           90                24000                17000                19333    
+               58000                                                            
+                                                                                
+           20                13000                 6000                 9500    
+               19000                                                            
+                                                                                
+           70                10000                10000                10000    
+               10000                                                            
+                                                                                
+
+DEPARTMENT_ID ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)    
+------------- -------------------- -------------------- --------------------    
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+          110                12008                 8300                10154    
+               20308                                                            
+                                                                                
+           50                 8200                 2100                 3476    
+              156400                                                            
+                                                                                
+           80                14000                 6100                 8956    
+              304500                                                            
+                                                                                
+
+DEPARTMENT_ID ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)    
+------------- -------------------- -------------------- --------------------    
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+           40                 6500                 6500                 6500    
+                6500                                                            
+                                                                                
+           60                 9000                 4200                 5760    
+               28800                                                            
+                                                                                
+           10                 4400                 4400                 4400    
+                4400                                                            
+                                                                                
+
+12 rows selected.
+
+SQL> select JOB_ID,round(max(salary),0),round(min(salary),0),round(avg(salary),0),round(sum(salary),0) from employees group by JOB_ID;
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+IT_PROG                    9000                 4200                 5760       
+               28800                                                            
+                                                                                
+AC_MGR                    12008                12008                12008       
+               12008                                                            
+                                                                                
+AC_ACCOUNT                 8300                 8300                 8300       
+                8300                                                            
+                                                                                
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+ST_MAN                     8200                 5800                 7280       
+               36400                                                            
+                                                                                
+PU_MAN                    11000                11000                11000       
+               11000                                                            
+                                                                                
+AD_ASST                    4400                 4400                 4400       
+                4400                                                            
+                                                                                
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+AD_VP                     17000                17000                17000       
+               34000                                                            
+                                                                                
+SH_CLERK                   4200                 2500                 3215       
+               64300                                                            
+                                                                                
+FI_ACCOUNT                 9000                 6900                 7920       
+               39600                                                            
+                                                                                
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+FI_MGR                    12008                12008                12008       
+               12008                                                            
+                                                                                
+PU_CLERK                   3100                 2500                 2780       
+               13900                                                            
+                                                                                
+SA_MAN                    14000                10500                12200       
+               61000                                                            
+                                                                                
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+MK_MAN                    13000                13000                13000       
+               13000                                                            
+                                                                                
+PR_REP                    10000                10000                10000       
+               10000                                                            
+                                                                                
+AD_PRES                   24000                24000                24000       
+               24000                                                            
+                                                                                
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+SA_REP                    11500                 6100                 8350       
+              250500                                                            
+                                                                                
+MK_REP                     6000                 6000                 6000       
+                6000                                                            
+                                                                                
+ST_CLERK                   3600                 2100                 2785       
+               55700                                                            
+                                                                                
+
+JOB_ID     ROUND(MAX(SALARY),0) ROUND(MIN(SALARY),0) ROUND(AVG(SALARY),0)       
+---------- -------------------- -------------------- --------------------       
+ROUND(SUM(SALARY),0)                                                            
+--------------------                                                            
+HR_REP                     6500                 6500                 6500       
+                6500                                                            
+                                                                                
+
+19 rows selected.
+
+SQL> SELECT JOB_ID from employees group by JOB_ID;
+
+JOB_ID                                                                          
+----------                                                                      
+AC_ACCOUNT                                                                      
+AC_MGR                                                                          
+AD_ASST                                                                         
+AD_PRES                                                                         
+AD_VP                                                                           
+FI_ACCOUNT                                                                      
+FI_MGR                                                                          
+HR_REP                                                                          
+IT_PROG                                                                         
+MK_MAN                                                                          
+MK_REP                                                                          
+
+JOB_ID                                                                          
+----------                                                                      
+PR_REP                                                                          
+PU_CLERK                                                                        
+PU_MAN                                                                          
+SA_MAN                                                                          
+SA_REP                                                                          
+SH_CLERK                                                                        
+ST_CLERK                                                                        
+ST_MAN                                                                          
+
+19 rows selected.
+
+SQL> select count(*) from employees group by JOB_ID;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         1                                                                      
+         1                                                                      
+         1                                                                      
+         1                                                                      
+         2                                                                      
+         5                                                                      
+         1                                                                      
+         1                                                                      
+         5                                                                      
+         1                                                                      
+         1                                                                      
+
+  COUNT(*)                                                                      
+----------                                                                      
+         1                                                                      
+         5                                                                      
+         1                                                                      
+         5                                                                      
+        30                                                                      
+        20                                                                      
+        20                                                                      
+         5                                                                      
+
+19 rows selected.
+
+SQL> select count(employee_id) group by JOB_ID;
+select count(employee_id) group by JOB_ID
+                          *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select count(employee_id) from employees group by JOB_ID;
+
+COUNT(EMPLOYEE_ID)                                                              
+------------------                                                              
+                 1                                                              
+                 1                                                              
+                 1                                                              
+                 1                                                              
+                 2                                                              
+                 5                                                              
+                 1                                                              
+                 1                                                              
+                 5                                                              
+                 1                                                              
+                 1                                                              
+
+COUNT(EMPLOYEE_ID)                                                              
+------------------                                                              
+                 1                                                              
+                 5                                                              
+                 1                                                              
+                 5                                                              
+                30                                                              
+                20                                                              
+                20                                                              
+                 5                                                              
+
+19 rows selected.
+
+SQL> 
+SQL> select  JOB_ID,count(employee_id) group by JOB_ID;
+select  JOB_ID,count(employee_id) group by JOB_ID
+                                  *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select  JOB_ID,count(employee_id) FROM employees group by JOB_ID;
+
+JOB_ID     COUNT(EMPLOYEE_ID)                                                   
+---------- ------------------                                                   
+AC_ACCOUNT                  1                                                   
+AC_MGR                      1                                                   
+AD_ASST                     1                                                   
+AD_PRES                     1                                                   
+AD_VP                       2                                                   
+FI_ACCOUNT                  5                                                   
+FI_MGR                      1                                                   
+HR_REP                      1                                                   
+IT_PROG                     5                                                   
+MK_MAN                      1                                                   
+MK_REP                      1                                                   
+
+JOB_ID     COUNT(EMPLOYEE_ID)                                                   
+---------- ------------------                                                   
+PR_REP                      1                                                   
+PU_CLERK                    5                                                   
+PU_MAN                      1                                                   
+SA_MAN                      5                                                   
+SA_REP                     30                                                   
+SH_CLERK                   20                                                   
+ST_CLERK                   20                                                   
+ST_MAN                      5                                                   
+
+19 rows selected.
+
+SQL> select  count(MANAGER_ID) FROM employees group by MANAGER_ID;
+
+COUNT(MANAGER_ID)                                                               
+-----------------                                                               
+               14                                                               
+                5                                                               
+                1                                                               
+                4                                                               
+                5                                                               
+                5                                                               
+                8                                                               
+                8                                                               
+                8                                                               
+                8                                                               
+                8                                                               
+
+COUNT(MANAGER_ID)                                                               
+-----------------                                                               
+                6                                                               
+                6                                                               
+                6                                                               
+                6                                                               
+                6                                                               
+                1                                                               
+                1                                                               
+
+18 rows selected.
+
+SQL> select max(salary)-min(salary) "DIFFERENCE" from employees;
+
+DIFFERENCE                                                                      
+----------                                                                      
+     21900                                                                      
+
+SQL> select manager_id, min(salary) from employees where salary>6000 group by manager_id order by salary desc;
+select manager_id, min(salary) from employees where salary>6000 group by manager_id order by salary desc
+                                                                                             *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id having salary>6000 order by salary desc;
+select manager_id, min(salary) from employees group by manager_id having salary>6000 order by salary desc
+                                                                         *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id having min(salary>6000) order by salary desc;
+select manager_id, min(salary) from employees group by manager_id having min(salary>6000) order by salary desc
+                                                                                   *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id having min(salary>6000);
+select manager_id, min(salary) from employees group by manager_id having min(salary>6000)
+                                                                                   *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id having min(salary)>6000;
+
+MANAGER_ID MIN(SALARY)                                                          
+---------- -----------                                                          
+                 24000                                                          
+       147        6200                                                          
+       108        6900                                                          
+       148        6100                                                          
+       149        6200                                                          
+       205        8300                                                          
+       102        9000                                                          
+       145        7000                                                          
+       146        7000                                                          
+
+9 rows selected.
+
+SQL> select manager_id, min(salary) from employees group by manager_id having min(salary)>6000 order by salary desc;
+select manager_id, min(salary) from employees group by manager_id having min(salary)>6000 order by salary desc
+                                                                                                   *
+ERROR at line 1:
+ORA-00979: not a GROUP BY expression 
+
+
+SQL> select manager_id, min(salary) from employees order by salary desc group by manager_id having min(salary)>6000;
+select manager_id, min(salary) from employees order by salary desc group by manager_id having min(salary)>6000
+                                                                   *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id order by min(salary) having min(salary)>6000;
+select manager_id, min(salary) from employees group by manager_id order by min(salary) having min(salary)>6000
+                                                                                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id having min(salary)>6000 order by Min(salar) desc;
+select manager_id, min(salary) from employees group by manager_id having min(salary)>6000 order by Min(salar) desc
+                                                                                                       *
+ERROR at line 1:
+ORA-00904: "SALAR": invalid identifier 
+
+
+SQL> select manager_id, min(salary) from employees group by manager_id having min(salary)>6000 order by Min(salary) desc;
+
+MANAGER_ID MIN(SALARY)                                                          
+---------- -----------                                                          
+                 24000                                                          
+       102        9000                                                          
+       205        8300                                                          
+       145        7000                                                          
+       146        7000                                                          
+       108        6900                                                          
+       147        6200                                                          
+       149        6200                                                          
+       148        6100                                                          
+
+9 rows selected.
+
+SQL> select manager_id, min(salary) from employees  where manager_id IS NOT NULL group by manager_id having min(salary)>6000 order by Min(salary) desc;
+
+MANAGER_ID MIN(SALARY)                                                          
+---------- -----------                                                          
+       102        9000                                                          
+       205        8300                                                          
+       145        7000                                                          
+       146        7000                                                          
+       108        6900                                                          
+       147        6200                                                          
+       149        6200                                                          
+       148        6100                                                          
+
+8 rows selected.
+
+SQL> select count(employee_id),JOB_ID from employees group by JOB_ID;
+
+COUNT(EMPLOYEE_ID) JOB_ID                                                       
+------------------ ----------                                                   
+                 1 AC_ACCOUNT                                                   
+                 1 AC_MGR                                                       
+                 1 AD_ASST                                                      
+                 1 AD_PRES                                                      
+                 2 AD_VP                                                        
+                 5 FI_ACCOUNT                                                   
+                 1 FI_MGR                                                       
+                 1 HR_REP                                                       
+                 5 IT_PROG                                                      
+                 1 MK_MAN                                                       
+                 1 MK_REP                                                       
+
+COUNT(EMPLOYEE_ID) JOB_ID                                                       
+------------------ ----------                                                   
+                 1 PR_REP                                                       
+                 5 PU_CLERK                                                     
+                 1 PU_MAN                                                       
+                 5 SA_MAN                                                       
+                30 SA_REP                                                       
+                20 SH_CLERK                                                     
+                20 ST_CLERK                                                     
+                 5 ST_MAN                                                       
+
+19 rows selected.
+
+SQL> 
+SQL> select count(employee_id),JOB_ID from employees group by JOB_ID;
+
+COUNT(EMPLOYEE_ID) JOB_ID                                                       
+------------------ ----------                                                   
+                 1 AC_ACCOUNT                                                   
+                 1 AC_MGR                                                       
+                 1 AD_ASST                                                      
+                 1 AD_PRES                                                      
+                 2 AD_VP                                                        
+                 5 FI_ACCOUNT                                                   
+                 1 FI_MGR                                                       
+                 1 HR_REP                                                       
+                 5 IT_PROG                                                      
+                 1 MK_MAN                                                       
+                 1 MK_REP                                                       
+
+COUNT(EMPLOYEE_ID) JOB_ID                                                       
+------------------ ----------                                                   
+                 1 PR_REP                                                       
+                 5 PU_CLERK                                                     
+                 1 PU_MAN                                                       
+                 5 SA_MAN                                                       
+                30 SA_REP                                                       
+                20 SH_CLERK                                                     
+                20 ST_CLERK                                                     
+                 5 ST_MAN                                                       
+
+19 rows selected.
+
+SQL> select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0) "2008",,sum(decode(to_char(hire_date,'yyyy'),2009,1,0) "2009",,sum(decode(to_char(hire_date,'yyyy'),20010,1,0) "2010" from employees;
+select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0) "2008",,sum(decode(to_char(hire_date,'yyyy'),2009,1,0) "2009",,sum(decode(to_char(hire_date,'yyyy'),20010,1,0) "2010" from employees
+                                                               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0)) "2008",,sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",,sum(decode(to_char(hire_date,'yyyy'),20010,1,0)) "2010" from employees;
+select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0)) "2008",,sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",,sum(decode(to_char(hire_date,'yyyy'),20010,1,0)) "2010" from employees
+                                                               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0)) "2008",sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",sum(decode(to_char(hire_date,'yyyy'),20010,1,0)) "2010" from employees;
+select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0)) "2008",sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",sum(decode(to_char(hire_date,'yyyy'),20010,1,0)) "2010" from employees
+                                                               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy')),2008,1,0)) "2008",sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",sum(decode(to_char(hire_date,'yyyy'),2010,1,0)) "2010" from employees;
+select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0) "2007",sum(decode(to_char(hire_date,'yyyy')),2008,1,0)) "2008",sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",sum(decode(to_char(hire_date,'yyyy'),2010,1,0)) "2010" from employees
+                                                               *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select count(*),sum(decode(to_char(hire_date,'yyyy'),2007,1,0)) "2007",sum(decode(to_char(hire_date,'yyyy'),2008,1,0)) "2008",sum(decode(to_char(hire_date,'yyyy'),2009,1,0)) "2009",sum(decode(to_char(hire_date,'yyyy'),2010,1,0)) "2010" from employees;
+
+  COUNT(*)       2007       2008       2009       2010                          
+---------- ---------- ---------- ---------- ----------                          
+       107         19         11          0          0                          
+
+SQL> select JOB_ID,salary,sum(salary) where department_id=20 OR department_id=50 OR department_id=80 OR department_id=90from employees;
+select JOB_ID,salary,sum(salary) where department_id=20 OR department_id=50 OR department_id=80 OR department_id=90from employees
+                                 *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select JOB_ID,salary,sum(salary) from employees where department_id=20 OR department_id=50 OR department_id=80 OR department_id=90;
+select JOB_ID,salary,sum(salary) from employees where department_id=20 OR department_id=50 OR department_id=80 OR department_id=90
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> select JOB_ID,salary, from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees;
+select JOB_ID,salary, from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees
+                      *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select JOB_ID,salary,department_id from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees;
+select JOB_ID,salary,department_id from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees
+                                                        *
+ERROR at line 1:
+ORA-00934: group function is not allowed here 
+
+
+SQL> select JOB_ID,salary,department_id from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0)) from employees;
+select JOB_ID,salary,department_id from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0)) from employees
+                                                        *
+ERROR at line 1:
+ORA-00934: group function is not allowed here 
+
+
+SQL> select JOB_ID from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees;
+select JOB_ID from employees where sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees
+                                   *
+ERROR at line 1:
+ORA-00934: group function is not allowed here 
+
+
+SQL> select JOB_ID , sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees;
+select JOB_ID , sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0) from employees
+                                        *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select JOB_ID , sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0)) from employees;
+select JOB_ID , sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0)) from employees
+                                        *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select JOB_ID "job" , sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0))  "salary sum"from employees;
+select JOB_ID "job" , sum(decode(department_id=20,salary,0)),sum(decode(department_id=30,salary,0)),sum(decode(department_id=80,salary,0)),sum(decode(department_id=90,salary,0))  "salary sum"from employees
+                                              *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select JOB_ID , sum(decode(department_id,20,salary)),sum(decode(department_id,30,salary)),sum(decode(department_id,80,salary)),sum(decode(department_id,90,salary)) from employees;
+select JOB_ID , sum(decode(department_id,20,salary)),sum(decode(department_id,30,salary)),sum(decode(department_id,80,salary)),sum(decode(department_id,90,salary)) from employees
+       *
+ERROR at line 1:
+ORA-00937: not a single-group group function 
+
+
+SQL> select JOB_ID , sum(decode(department_id,20,salary)),sum(decode(department_id,30,salary)),sum(decode(department_id,80,salary)),sum(decode(department_id,90,salary)) from employees group by JOB_ID;
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+IT_PROG                                                                         
+                                                                                
+                                                                                
+                                                                                
+AC_MGR                                                                          
+                                                                                
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+AC_ACCOUNT                                                                      
+                                                                                
+                                                                                
+                                                                                
+ST_MAN                                                                          
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+                                                                                
+PU_MAN                                                                          
+                               11000                                            
+                                                                                
+                                                                                
+AD_ASST                                                                         
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+                                                                                
+                                                                                
+AD_VP                                                                           
+                                                                                
+                               34000                                            
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+SH_CLERK                                                                        
+                                                                                
+                                                                                
+                                                                                
+FI_ACCOUNT                                                                      
+                                                                                
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+FI_MGR                                                                          
+                                                                                
+                                                                                
+                                                                                
+PU_CLERK                                                                        
+                               13900                                            
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+                                                                                
+SA_MAN                                                                          
+                                                                    61000       
+                                                                                
+                                                                                
+MK_MAN                                    13000                                 
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+                                                                                
+                                                                                
+PR_REP                                                                          
+                                                                                
+                                                                                
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+AD_PRES                                                                         
+                                                                                
+                               24000                                            
+                                                                                
+SA_REP                                                                          
+                                                                   243500       
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+MK_REP                                     6000                                 
+                                                                                
+                                                                                
+                                                                                
+ST_CLERK                                                                        
+                                                                                
+
+JOB_ID     SUM(DECODE(DEPARTMENT_ID,20,SALARY))                                 
+---------- ------------------------------------                                 
+SUM(DECODE(DEPARTMENT_ID,30,SALARY)) SUM(DECODE(DEPARTMENT_ID,80,SALARY))       
+------------------------------------ ------------------------------------       
+SUM(DECODE(DEPARTMENT_ID,90,SALARY))                                            
+------------------------------------                                            
+                                                                                
+                                                                                
+HR_REP                                                                          
+                                                                                
+                                                                                
+                                                                                
+
+19 rows selected.
+
+SQL> select JOB_ID "JOB" , sum(decode(department_id,20,salary)) "20",sum(decode(department_id,30,salary)) "30",sum(decode(department_id,80,salary))"80",sum(decode(department_id,90,salary)) "90" from employees group by JOB_ID;
+
+JOB                20         30         80         90                          
+---------- ---------- ---------- ---------- ----------                          
+IT_PROG                                                                         
+AC_MGR                                                                          
+AC_ACCOUNT                                                                      
+ST_MAN                                                                          
+PU_MAN                     11000                                                
+AD_ASST                                                                         
+AD_VP                                            34000                          
+SH_CLERK                                                                        
+FI_ACCOUNT                                                                      
+FI_MGR                                                                          
+PU_CLERK                   13900                                                
+
+JOB                20         30         80         90                          
+---------- ---------- ---------- ---------- ----------                          
+SA_MAN                                61000                                     
+MK_MAN          13000                                                           
+PR_REP                                                                          
+AD_PRES                                          24000                          
+SA_REP                               243500                                     
+MK_REP           6000                                                           
+ST_CLERK                                                                        
+HR_REP                                                                          
+
+19 rows selected.
+
+SQL> select JOB_ID "JOB" , sum(decode(department_id,20,salary)) "20",sum(decode(department_id,30,salary)) "30",sum(decode(department_id,80,salary))"80",sum(decode(department_id,90,salary)) "90" from employees group by JOB_ID;
+
+JOB                20         30         80         90                          
+---------- ---------- ---------- ---------- ----------                          
+IT_PROG                                                                         
+AC_MGR                                                                          
+AC_ACCOUNT                                                                      
+ST_MAN                                                                          
+PU_MAN                     11000                                                
+AD_ASST                                                                         
+AD_VP                                            34000                          
+SH_CLERK                                                                        
+FI_ACCOUNT                                                                      
+FI_MGR                                                                          
+PU_CLERK                   13900                                                
+
+JOB                20         30         80         90                          
+---------- ---------- ---------- ---------- ----------                          
+SA_MAN                                61000                                     
+MK_MAN          13000                                                           
+PR_REP                                                                          
+AD_PRES                                          24000                          
+SA_REP                               243500                                     
+MK_REP           6000                                                           
+ST_CLERK                                                                        
+HR_REP                                                                          
+
+19 rows selected.
+
+SQL> spool off
