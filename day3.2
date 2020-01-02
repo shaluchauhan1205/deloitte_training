@@ -1,0 +1,515 @@
+SQL> select last_name,department_id 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id from employees where department_id=20 3"dummy"order by dummy
+  2  
+SQL> select last_name,department_id 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id from employees where department_id=20 3"dummy"order by dummy;
+select last_name,department_id 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id from employees where department_id=20 3"dummy"order by dummy
+                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select last_name,department_id, 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id ,3 "dummy" from employees where department_id=20 order by dummy;
+select last_name,department_id, 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id ,3 "dummy" from employees where department_id=20 order by dummy
+                                                                                                                                                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select last_name,department_id, 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id ,3 "dummy" from employees where department_id=20 order by 3;
+select last_name,department_id, 1 "dummy" from employees where department_id=60 union select last_name,department_id,2"dummy" from employees where department_id=40 unionselect last_name,department_id ,3 "dummy" from employees where department_id=20 order by 3
+                                                                                                                                                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select last_name,department_id, 1 from employees where department_id=60 union select last_name,department_id,2 from employees where department_id=40 unionselect last_name,department_id ,3 from employees where department_id=20 order by 3;
+select last_name,department_id, 1 from employees where department_id=60 union select last_name,department_id,2 from employees where department_id=40 unionselect last_name,department_id ,3 from employees where department_id=20 order by 3
+                                                                                                                                                     *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select last_name ,city,1 from employees where city="oxford" union select last_name ,city,2 from employees where city="landon"  union  select last_name ,city,2 from employees where city="landon"
+  2  
+SQL> select last_name from employees where department_id =(select department_id where last_name='Smith');
+select last_name from employees where department_id =(select department_id where last_name='Smith')
+                                                                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select last_name from employees where department_id =(select department_id  from employees where last_name='Smith');
+select last_name from employees where department_id =(select department_id  from employees where last_name='Smith')
+                                                      *
+ERROR at line 1:
+ORA-01427: single-row subquery returns more than one row 
+
+
+SQL> select last_name from employees where department_id IN(select department_id  from employees where last_name='Smith');
+
+LAST_NAME                                                                       
+-------------------------                                                       
+Russell                                                                         
+Partners                                                                        
+Errazuriz                                                                       
+Cambrault                                                                       
+Zlotkey                                                                         
+Tucker                                                                          
+Bernstein                                                                       
+Hall                                                                            
+Olsen                                                                           
+Cambrault                                                                       
+Tuvault                                                                         
+
+LAST_NAME                                                                       
+-------------------------                                                       
+King                                                                            
+Sully                                                                           
+McEwen                                                                          
+Smith                                                                           
+Doran                                                                           
+Sewall                                                                          
+Vishney                                                                         
+Greene                                                                          
+Marvins                                                                         
+Lee                                                                             
+Ande                                                                            
+
+LAST_NAME                                                                       
+-------------------------                                                       
+Banda                                                                           
+Ozer                                                                            
+Bloom                                                                           
+Fox                                                                             
+Smith                                                                           
+Bates                                                                           
+Kumar                                                                           
+Abel                                                                            
+Hutton                                                                          
+Taylor                                                                          
+Livingston                                                                      
+
+LAST_NAME                                                                       
+-------------------------                                                       
+Johnson                                                                         
+
+34 rows selected.
+
+SQL> select employee_id,last_name from employees where salary >(select avg(salary) from employees;)
+  2  select employee_id,last_name from employees where salary >(select avg(salary) from employees);
+select employee_id,last_name from employees where salary >(select avg(salary) from employees;)
+                                                                                            *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> select employee_id,last_name from employees where salary >(select avg(salary) from employees);
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        100 King                                                                
+        101 Kochhar                                                             
+        102 De Haan                                                             
+        103 Hunold                                                              
+        108 Greenberg                                                           
+        109 Faviet                                                              
+        110 Chen                                                                
+        111 Sciarra                                                             
+        112 Urman                                                               
+        113 Popp                                                                
+        114 Raphaely                                                            
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        120 Weiss                                                               
+        121 Fripp                                                               
+        122 Kaufling                                                            
+        123 Vollman                                                             
+        145 Russell                                                             
+        146 Partners                                                            
+        147 Errazuriz                                                           
+        148 Cambrault                                                           
+        149 Zlotkey                                                             
+        150 Tucker                                                              
+        151 Bernstein                                                           
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        152 Hall                                                                
+        153 Olsen                                                               
+        154 Cambrault                                                           
+        155 Tuvault                                                             
+        156 King                                                                
+        157 Sully                                                               
+        158 McEwen                                                              
+        159 Smith                                                               
+        160 Doran                                                               
+        161 Sewall                                                              
+        162 Vishney                                                             
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        163 Greene                                                              
+        164 Marvins                                                             
+        165 Lee                                                                 
+        168 Ozer                                                                
+        169 Bloom                                                               
+        170 Fox                                                                 
+        171 Smith                                                               
+        172 Bates                                                               
+        174 Abel                                                                
+        175 Hutton                                                              
+        176 Taylor                                                              
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        177 Livingston                                                          
+        178 Grant                                                               
+        201 Hartstein                                                           
+        203 Mavris                                                              
+        204 Baer                                                                
+        205 Higgins                                                             
+        206 Gietz                                                               
+
+51 rows selected.
+
+SQL> select employee_id,last_name from employees where last_name IN(select last_name from employees where last_name LIKE '%u%');
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        105 Austin                                                              
+        185 Bull                                                                
+        154 Cambrault                                                           
+        148 Cambrault                                                           
+        188 Chung                                                               
+        147 Errazuriz                                                           
+        181 Fleaur                                                              
+        118 Himuro                                                              
+        103 Hunold                                                              
+        175 Hutton                                                              
+        122 Kaufling                                                            
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        173 Kumar                                                               
+        124 Mourgos                                                             
+        145 Russell                                                             
+        182 Sullivan                                                            
+        157 Sully                                                               
+        150 Tucker                                                              
+        155 Tuvault                                                             
+
+18 rows selected.
+
+SQL> select last_name,department_id from employees where  department_id in(select department_id from departments where location_id in (select location_id from locations where location_id=1700);
+select last_name,department_id from employees where  department_id in(select department_id from departments where location_id in (select location_id from locations where location_id=1700)
+                                                                                                                                                                                          *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select last_name,department_id from employees where  department_id in(select department_id from departments where location_id in (select location_id from locations where location_id=1700));
+
+LAST_NAME                 DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Baida                                30                                         
+Chen                                100                                         
+Colmenares                           30                                         
+De Haan                              90                                         
+Faviet                              100                                         
+Gietz                               110                                         
+Greenberg                           100                                         
+Higgins                             110                                         
+Himuro                               30                                         
+Khoo                                 30                                         
+King                                 90                                         
+
+LAST_NAME                 DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Kochhar                              90                                         
+Popp                                100                                         
+Raphaely                             30                                         
+Sciarra                             100                                         
+Tobias                               30                                         
+Urman                               100                                         
+Whalen                               10                                         
+
+18 rows selected.
+
+SQL> select employee_id ,last_name from employees where employee_id in(select employee_id from employees where manager_id in(select manager_id from employees where last_name='King'));
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        156 King                                                                
+        157 Sully                                                               
+        158 McEwen                                                              
+        159 Smith                                                               
+        160 Doran                                                               
+        161 Sewall                                                              
+
+6 rows selected.
+
+SQL> select employee_id ,last_name,job_id where job_id in(select employee_id from departments where department_name='Executive');
+select employee_id ,last_name,job_id where job_id in(select employee_id from departments where department_name='Executive')
+                                     *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select employee_id ,last_name,job_id from employees where job_id in(select employee_id from departments where department_name='Executive');
+select employee_id ,last_name,job_id from employees where job_id in(select employee_id from departments where department_name='Executive')
+                                                          *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> select employee_id ,last_name,job_id from from employees where employee_id in(select employee_id from departments where department_name='Executive');
+select employee_id ,last_name,job_id from from employees where employee_id in(select employee_id from departments where department_name='Executive')
+                                          *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> select employee_id ,last_name,job_id  from employees where employee_id in(select employee_id from departments where department_name='Executive');
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        100 King                      AD_PRES                                   
+        101 Kochhar                   AD_VP                                     
+        102 De Haan                   AD_VP                                     
+        103 Hunold                    IT_PROG                                   
+        104 Ernst                     IT_PROG                                   
+        105 Austin                    IT_PROG                                   
+        106 Pataballa                 IT_PROG                                   
+        107 Lorentz                   IT_PROG                                   
+        108 Greenberg                 FI_MGR                                    
+        109 Faviet                    FI_ACCOUNT                                
+        110 Chen                      FI_ACCOUNT                                
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        111 Sciarra                   FI_ACCOUNT                                
+        112 Urman                     FI_ACCOUNT                                
+        113 Popp                      FI_ACCOUNT                                
+        114 Raphaely                  PU_MAN                                    
+        115 Khoo                      PU_CLERK                                  
+        116 Baida                     PU_CLERK                                  
+        117 Tobias                    PU_CLERK                                  
+        118 Himuro                    PU_CLERK                                  
+        119 Colmenares                PU_CLERK                                  
+        120 Weiss                     ST_MAN                                    
+        121 Fripp                     ST_MAN                                    
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        122 Kaufling                  ST_MAN                                    
+        123 Vollman                   ST_MAN                                    
+        124 Mourgos                   ST_MAN                                    
+        125 Nayer                     ST_CLERK                                  
+        126 Mikkilineni               ST_CLERK                                  
+        127 Landry                    ST_CLERK                                  
+        128 Markle                    ST_CLERK                                  
+        129 Bissot                    ST_CLERK                                  
+        130 Atkinson                  ST_CLERK                                  
+        131 Marlow                    ST_CLERK                                  
+        132 Olson                     ST_CLERK                                  
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        133 Mallin                    ST_CLERK                                  
+        134 Rogers                    ST_CLERK                                  
+        135 Gee                       ST_CLERK                                  
+        136 Philtanker                ST_CLERK                                  
+        137 Ladwig                    ST_CLERK                                  
+        138 Stiles                    ST_CLERK                                  
+        139 Seo                       ST_CLERK                                  
+        140 Patel                     ST_CLERK                                  
+        141 Rajs                      ST_CLERK                                  
+        142 Davies                    ST_CLERK                                  
+        143 Matos                     ST_CLERK                                  
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        144 Vargas                    ST_CLERK                                  
+        145 Russell                   SA_MAN                                    
+        146 Partners                  SA_MAN                                    
+        147 Errazuriz                 SA_MAN                                    
+        148 Cambrault                 SA_MAN                                    
+        149 Zlotkey                   SA_MAN                                    
+        150 Tucker                    SA_REP                                    
+        151 Bernstein                 SA_REP                                    
+        152 Hall                      SA_REP                                    
+        153 Olsen                     SA_REP                                    
+        154 Cambrault                 SA_REP                                    
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        155 Tuvault                   SA_REP                                    
+        156 King                      SA_REP                                    
+        157 Sully                     SA_REP                                    
+        158 McEwen                    SA_REP                                    
+        159 Smith                     SA_REP                                    
+        160 Doran                     SA_REP                                    
+        161 Sewall                    SA_REP                                    
+        162 Vishney                   SA_REP                                    
+        163 Greene                    SA_REP                                    
+        164 Marvins                   SA_REP                                    
+        165 Lee                       SA_REP                                    
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        166 Ande                      SA_REP                                    
+        167 Banda                     SA_REP                                    
+        168 Ozer                      SA_REP                                    
+        169 Bloom                     SA_REP                                    
+        170 Fox                       SA_REP                                    
+        171 Smith                     SA_REP                                    
+        172 Bates                     SA_REP                                    
+        173 Kumar                     SA_REP                                    
+        174 Abel                      SA_REP                                    
+        175 Hutton                    SA_REP                                    
+        176 Taylor                    SA_REP                                    
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        177 Livingston                SA_REP                                    
+        178 Grant                     SA_REP                                    
+        179 Johnson                   SA_REP                                    
+        180 Taylor                    SH_CLERK                                  
+        181 Fleaur                    SH_CLERK                                  
+        182 Sullivan                  SH_CLERK                                  
+        183 Geoni                     SH_CLERK                                  
+        184 Sarchand                  SH_CLERK                                  
+        185 Bull                      SH_CLERK                                  
+        186 Dellinger                 SH_CLERK                                  
+        187 Cabrio                    SH_CLERK                                  
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        188 Chung                     SH_CLERK                                  
+        189 Dilly                     SH_CLERK                                  
+        190 Gates                     SH_CLERK                                  
+        191 Perkins                   SH_CLERK                                  
+        192 Bell                      SH_CLERK                                  
+        193 Everett                   SH_CLERK                                  
+        194 McCain                    SH_CLERK                                  
+        195 Jones                     SH_CLERK                                  
+        196 Walsh                     SH_CLERK                                  
+        197 Feeney                    SH_CLERK                                  
+        198 OConnell                  SH_CLERK                                  
+
+EMPLOYEE_ID LAST_NAME                 JOB_ID                                    
+----------- ------------------------- ----------                                
+        199 Grant                     SH_CLERK                                  
+        200 Whalen                    AD_ASST                                   
+        201 Hartstein                 MK_MAN                                    
+        202 Fay                       MK_REP                                    
+        203 Mavris                    HR_REP                                    
+        204 Baer                      PR_REP                                    
+        205 Higgins                   AC_MGR                                    
+        206 Gietz                     AC_ACCOUNT                                
+
+107 rows selected.
+
+SQL> select employee_id,last_name from employees where  last_name like '%u%' (select last_name from employees where salary >(select avg(salary) from employees and department_id is not null;)
+  2  select employee_id,last_name from employees where  last_name like '%u%' (select last_name from employees where salary >(select avg(salary) from employees and department_id is not null);
+select employee_id,last_name from employees where  last_name like '%u%' (select last_name from employees where salary >(select avg(salary) from employees and department_id is not null;)
+                                                                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select employee_id,last_name from employees where  last_name like '%u%' in (select last_name from employees where salary >(select avg(salary) from employees and department_id is not null);
+select employee_id,last_name from employees where  last_name like '%u%' in (select last_name from employees where salary >(select avg(salary) from employees and department_id is not null)
+                                                                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select employee_id,last_name from employees where  last_name  in (select last_name from employees where like '%u%' and salary >(select avg(salary) from employees and department_id is not null);
+select employee_id,last_name from employees where  last_name  in (select last_name from employees where like '%u%' and salary >(select avg(salary) from employees and department_id is not null)
+                                                                                                        *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select employee_id,last_name from employees where  last_name  in (select last_name from employees where last_name like '%u%' and salary >(select avg(salary) from employees and department_id is not null);
+select employee_id,last_name from employees where  last_name  in (select last_name from employees where last_name like '%u%' and salary >(select avg(salary) from employees and department_id is not null)
+                                                                                                                                                                            *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select employee_id,last_name from employees where  last_name  in (select last_name from employees where last_name like '%u%' and salary >(select avg(salary) from employees and department_id is not null));
+select employee_id,last_name from employees where  last_name  in (select last_name from employees where last_name like '%u%' and salary >(select avg(salary) from employees and department_id is not null))
+                                                                                                                                                                            *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select employee_id,last_name from employees where  last_name  in (select last_name from employees where last_name like '%u%' and salary > avg(salary) from employees and department_id is not null);
+select employee_id,last_name from employees where  last_name  in (select last_name from employees where last_name like '%u%' and salary > avg(salary) from employees and department_id is not null)
+                                                                                                                                          *
+ERROR at line 1:
+ORA-00934: group function is not allowed here 
+
+
+SQL> select employee_id,last_name from employees where  last_name  in (select last_name from employees where like '%u%' and salary >(select avg(salary) from employees and department_id is not null);
+select employee_id,last_name from employees where  last_name  in (select last_name from employees where like '%u%' and salary >(select avg(salary) from employees and department_id is not null)
+                                                                                                        *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select employee_id,last_name,salary from employees where salary>(select avg(salary)from employees)and department_id in(select department_id from employees where last_name like '%u%');
+
+EMPLOYEE_ID LAST_NAME                     SALARY                                
+----------- ------------------------- ----------                                
+        103 Hunold                          9000                                
+        123 Vollman                         6500                                
+        122 Kaufling                        7900                                
+        121 Fripp                           8200                                
+        120 Weiss                           8000                                
+        177 Livingston                      8400                                
+        176 Taylor                          8600                                
+        175 Hutton                          8800                                
+        174 Abel                           11000                                
+        172 Bates                           7300                                
+        171 Smith                           7400                                
+
+EMPLOYEE_ID LAST_NAME                     SALARY                                
+----------- ------------------------- ----------                                
+        170 Fox                             9600                                
+        169 Bloom                          10000                                
+        168 Ozer                           11500                                
+        165 Lee                             6800                                
+        164 Marvins                         7200                                
+        163 Greene                          9500                                
+        162 Vishney                        10500                                
+        161 Sewall                          7000                                
+        160 Doran                           7500                                
+        159 Smith                           8000                                
+        158 McEwen                          9000                                
+
+EMPLOYEE_ID LAST_NAME                     SALARY                                
+----------- ------------------------- ----------                                
+        157 Sully                           9500                                
+        156 King                           10000                                
+        155 Tuvault                         7000                                
+        154 Cambrault                       7500                                
+        153 Olsen                           8000                                
+        152 Hall                            9000                                
+        151 Bernstein                       9500                                
+        150 Tucker                         10000                                
+        149 Zlotkey                        10500                                
+        148 Cambrault                      11000                                
+        147 Errazuriz                      12000                                
+
+EMPLOYEE_ID LAST_NAME                     SALARY                                
+----------- ------------------------- ----------                                
+        146 Partners                       13500                                
+        145 Russell                        14000                                
+        114 Raphaely                       11000                                
+
+36 rows selected.
+
+SQL> spool off
