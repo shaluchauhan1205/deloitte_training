@@ -1,0 +1,549 @@
+SQL> select index_name from user_indexes where table_name='EMPLOYEES';
+
+INDEX_NAME                                                                      
+------------------------------                                                  
+EMP_NAME_IX                                                                     
+EMP_MANAGER_IX                                                                  
+EMP_JOB_IX                                                                      
+EMP_DEPARTMENT_IX                                                               
+EMP_EMP_ID_PK                                                                   
+EMP_EMAIL_UK                                                                    
+
+6 rows selected.
+
+SQL> select department_id from departments minus select department_id from employees where job_id='ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           10                                                                   
+           20                                                                   
+           30                                                                   
+           40                                                                   
+           60                                                                   
+           70                                                                   
+           80                                                                   
+           90                                                                   
+          100                                                                   
+          110                                                                   
+          120                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          130                                                                   
+          140                                                                   
+          150                                                                   
+          160                                                                   
+          170                                                                   
+          180                                                                   
+          190                                                                   
+          200                                                                   
+          210                                                                   
+          220                                                                   
+          230                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          240                                                                   
+          250                                                                   
+          260                                                                   
+          270                                                                   
+
+26 rows selected.
+
+SQL> select count(*) from employees where job_id='ST_CLERK';
+
+  COUNT(*)                                                                      
+----------                                                                      
+        20                                                                      
+
+SQL> select department_id from departments minus select department_id from employees where job_id='ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           10                                                                   
+           20                                                                   
+           30                                                                   
+           40                                                                   
+           60                                                                   
+           70                                                                   
+           80                                                                   
+           90                                                                   
+          100                                                                   
+          110                                                                   
+          120                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          130                                                                   
+          140                                                                   
+          150                                                                   
+          160                                                                   
+          170                                                                   
+          180                                                                   
+          190                                                                   
+          200                                                                   
+          210                                                                   
+          220                                                                   
+          230                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          240                                                                   
+          250                                                                   
+          260                                                                   
+          270                                                                   
+
+26 rows selected.
+
+SQL> SELECT COUNT(DEPARTMENT_ID) FROM DEPARTMENTS;
+
+COUNT(DEPARTMENT_ID)                                                            
+--------------------                                                            
+                  27                                                            
+
+SQL> select department_id from departments minus select department_id from employees where job_id='ST_CLERK';
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+           10                                                                   
+           20                                                                   
+           30                                                                   
+           40                                                                   
+           60                                                                   
+           70                                                                   
+           80                                                                   
+           90                                                                   
+          100                                                                   
+          110                                                                   
+          120                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          130                                                                   
+          140                                                                   
+          150                                                                   
+          160                                                                   
+          170                                                                   
+          180                                                                   
+          190                                                                   
+          200                                                                   
+          210                                                                   
+          220                                                                   
+          230                                                                   
+
+DEPARTMENT_ID                                                                   
+-------------                                                                   
+          240                                                                   
+          250                                                                   
+          260                                                                   
+          270                                                                   
+
+26 rows selected.
+
+SQL> select c.country_id,country_name from countries c,departments d,location l where c.country_id=l.country_id, and d.location_id=l.location_id;
+select c.country_id,country_name from countries c,departments d,location l where c.country_id=l.country_id, and d.location_id=l.location_id
+                                                                                                          *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select c.country_id,country_name from countries c,departments d,location l where c.country_id=l.country_id and d.location_id=l.location_id;
+select c.country_id,country_name from countries c,departments d,location l where c.country_id=l.country_id and d.location_id=l.location_id
+                                                                *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select c.country_id,country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+
+CO COUNTRY_NAME                                                                 
+-- ----------------------------------------                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+
+CO COUNTRY_NAME                                                                 
+-- ----------------------------------------                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+US United States of America                                                     
+
+CO COUNTRY_NAME                                                                 
+-- ----------------------------------------                                     
+US United States of America                                                     
+CA Canada                                                                       
+UK United Kingdom                                                               
+UK United Kingdom                                                               
+DE Germany                                                                      
+
+27 rows selected.
+
+SQL> selet distinct c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+SP2-0734: unknown command beginning "selet dist..." - rest of line ignored.
+SQL> select distinct c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+
+COUNTRY_NAME                                                                    
+----------------------------------------                                        
+United Kingdom                                                                  
+United States of America                                                        
+Germany                                                                         
+Canada                                                                          
+
+SQL> select country_id,country_name from countries minus select distinct c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+select country_id,country_name from countries minus select distinct c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id
+*
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> select country_id,country_name from countries minus select  c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+select country_id,country_name from countries minus select  c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id
+*
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> select country_id,country_name from countries minus select  c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+select country_id,country_name from countries minus select  c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id
+*
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> select country_id,country_name from countries minus select c.country_id,  c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;
+
+CO COUNTRY_NAME                                                                 
+-- ----------------------------------------                                     
+AR Argentina                                                                    
+AU Australia                                                                    
+BE Belgium                                                                      
+BR Brazil                                                                       
+CH Switzerland                                                                  
+CN China                                                                        
+DK Denmark                                                                      
+EG Egypt                                                                        
+FR France                                                                       
+IL Israel                                                                       
+IN India                                                                        
+
+CO COUNTRY_NAME                                                                 
+-- ----------------------------------------                                     
+IT Italy                                                                        
+JP Japan                                                                        
+KW Kuwait                                                                       
+ML Malaysia                                                                     
+MX Mexico                                                                       
+NG Nigeria                                                                      
+NL Netherlands                                                                  
+SG Singapore                                                                    
+ZM Zambia                                                                       
+ZW Zimbabwe                                                                     
+
+21 rows selected.
+
+SQL> select country_id,country_name from countries minus select c.country_id,  c.country_name from countries c,departments d,locations l where c.country_id=l.country_id and d.location_id=l.location_id;_id
+  2  
+SQL> select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,1 "a" from employees where department_id=50  select job_id,department_id,1 "a" from employees where department_id=20;
+select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,1 "a" from employees where department_id=50  select job_id,department_id,1 "a" from employees where department_id=20
+                                                                                                                                                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,1 "a" from employees where department_id=50  select job_id,department_id,1 "a" from employees where department_id=20 order by 3;
+select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,1 "a" from employees where department_id=50  select job_id,department_id,1 "a" from employees where department_id=20 order by 3
+                                                                                                                                                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,1 "a" from employees where department_id=50 union  select job_id,department_id,1 "a" from employees where department_id=20 order by 3;
+
+JOB_ID     DEPARTMENT_ID          a                                             
+---------- ------------- ----------                                             
+AD_ASST               10          1                                             
+MK_MAN                20          1                                             
+MK_REP                20          1                                             
+SH_CLERK              50          1                                             
+ST_CLERK              50          1                                             
+ST_MAN                50          1                                             
+
+6 rows selected.
+
+SQL> select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,2" from employees where department_id=50 union  select job_id,department_id,3 from employees where department_id=20 order by 3;
+ERROR:
+ORA-01740: missing double quote in identifier 
+
+
+SQL> select job_id,department_id,1 "a" from employees where department_id=10 union  select job_id,department_id,2 from employees where department_id=50 union  select job_id,department_id,3 from employees where department_id=20 order by 3;
+
+JOB_ID     DEPARTMENT_ID          a                                             
+---------- ------------- ----------                                             
+AD_ASST               10          1                                             
+SH_CLERK              50          2                                             
+ST_CLERK              50          2                                             
+ST_MAN                50          2                                             
+MK_MAN                20          3                                             
+MK_REP                20          3                                             
+
+6 rows selected.
+
+SQL> select employee_id,job_id from employees union select job_id from job_history;
+select employee_id,job_id from employees union select job_id from job_history
+*
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> select employee_id,job_id from employees union select employee_id job_id from job_history;
+select employee_id,job_id from employees union select employee_id job_id from job_history
+*
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> select employee_id,job_id from employees intersection select employee_id job_id from job_history;
+select employee_id,job_id from employees intersection select employee_id job_id from job_history
+                                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select employee_id,job_id from employees intersect select employee_id job_id from job_history;
+select employee_id,job_id from employees intersect select employee_id job_id from job_history
+*
+ERROR at line 1:
+ORA-01789: query block has incorrect number of result columns 
+
+
+SQL> select employee_id,job_id from employees intersect select employee_id, job_id from job_history;
+
+EMPLOYEE_ID JOB_ID                                                              
+----------- ----------                                                          
+        176 SA_REP                                                              
+        200 AD_ASST                                                             
+
+SQL> select last_name,department_id from employees union select department_id,deparment_names fromemployees ;
+select last_name,department_id from employees union select department_id,deparment_names fromemployees 
+                                                                                                      *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select last_name,department_id from employees union select department_id,deparment_names from employees ;
+select last_name,department_id from employees union select department_id,deparment_names from employees 
+                                                                         *
+ERROR at line 1:
+ORA-00904: "DEPARMENT_NAMES": invalid identifier 
+
+
+SQL> select last_name,department_id from employees union select department_id,department_names from employees ;
+select last_name,department_id from employees union select department_id,department_names from employees 
+                                                                         *
+ERROR at line 1:
+ORA-00904: "DEPARTMENT_NAMES": invalid identifier 
+
+
+SQL> select last_name,department_id from employees union select department_id,department_name from employees ;
+select last_name,department_id from employees union select department_id,department_name from employees 
+                                                                         *
+ERROR at line 1:
+ORA-00904: "DEPARTMENT_NAME": invalid identifier 
+
+
+SQL> select last_name,department_id from employees union select department_id,department_name from departments ;
+select last_name,department_id from employees union select department_id,department_name from departments 
+       *
+ERROR at line 1:
+ORA-01790: expression must have same datatype as corresponding expression 
+
+
+SQL> select last_name,department_id from employees union select department_name,department_id from departments ;
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Abel                                      80                                    
+Accounting                               110                                    
+Administration                            10                                    
+Ande                                      80                                    
+Atkinson                                  50                                    
+Austin                                    60                                    
+Baer                                      70                                    
+Baida                                     30                                    
+Banda                                     80                                    
+Bates                                     80                                    
+Bell                                      50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Benefits                                 160                                    
+Bernstein                                 80                                    
+Bissot                                    50                                    
+Bloom                                     80                                    
+Bull                                      50                                    
+Cabrio                                    50                                    
+Cambrault                                 80                                    
+Chen                                     100                                    
+Chung                                     50                                    
+Colmenares                                30                                    
+Construction                             180                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Contracting                              190                                    
+Control And Credit                       140                                    
+Corporate Tax                            130                                    
+Davies                                    50                                    
+De Haan                                   90                                    
+Dellinger                                 50                                    
+Dilly                                     50                                    
+Doran                                     80                                    
+Ernst                                     60                                    
+Errazuriz                                 80                                    
+Everett                                   50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Executive                                 90                                    
+Faviet                                   100                                    
+Fay                                       20                                    
+Feeney                                    50                                    
+Finance                                  100                                    
+Fleaur                                    50                                    
+Fox                                       80                                    
+Fripp                                     50                                    
+Gates                                     50                                    
+Gee                                       50                                    
+Geoni                                     50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Gietz                                    110                                    
+Government Sales                         240                                    
+Grant                                     50                                    
+Grant                                                                           
+Greenberg                                100                                    
+Greene                                    80                                    
+Hall                                      80                                    
+Hartstein                                 20                                    
+Higgins                                  110                                    
+Himuro                                    30                                    
+Human Resources                           40                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Hunold                                    60                                    
+Hutton                                    80                                    
+IT                                        60                                    
+IT Helpdesk                              230                                    
+IT Support                               210                                    
+Johnson                                   80                                    
+Jones                                     50                                    
+Kaufling                                  50                                    
+Khoo                                      30                                    
+King                                      80                                    
+King                                      90                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Kochhar                                   90                                    
+Kumar                                     80                                    
+Ladwig                                    50                                    
+Landry                                    50                                    
+Lee                                       80                                    
+Livingston                                80                                    
+Lorentz                                   60                                    
+Mallin                                    50                                    
+Manufacturing                            170                                    
+Marketing                                 20                                    
+Markle                                    50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Marlow                                    50                                    
+Marvins                                   80                                    
+Matos                                     50                                    
+Mavris                                    40                                    
+McCain                                    50                                    
+McEwen                                    80                                    
+Mikkilineni                               50                                    
+Mourgos                                   50                                    
+NOC                                      220                                    
+Nayer                                     50                                    
+OConnell                                  50                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Olsen                                     80                                    
+Olson                                     50                                    
+Operations                               200                                    
+Ozer                                      80                                    
+Partners                                  80                                    
+Pataballa                                 60                                    
+Patel                                     50                                    
+Payroll                                  270                                    
+Perkins                                   50                                    
+Philtanker                                50                                    
+Popp                                     100                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Public Relations                          70                                    
+Purchasing                                30                                    
+Rajs                                      50                                    
+Raphaely                                  30                                    
+Recruiting                               260                                    
+Retail Sales                             250                                    
+Rogers                                    50                                    
+Russell                                   80                                    
+Sales                                     80                                    
+Sarchand                                  50                                    
+Sciarra                                  100                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Seo                                       50                                    
+Sewall                                    80                                    
+Shareholder Services                     150                                    
+Shipping                                  50                                    
+Smith                                     80                                    
+Stiles                                    50                                    
+Sullivan                                  50                                    
+Sully                                     80                                    
+Taylor                                    50                                    
+Taylor                                    80                                    
+Tobias                                    30                                    
+
+LAST_NAME                      DEPARTMENT_ID                                    
+------------------------------ -------------                                    
+Treasury                                 120                                    
+Tucker                                    80                                    
+Tuvault                                   80                                    
+Urman                                    100                                    
+Vargas                                    50                                    
+Vishney                                   80                                    
+Vollman                                   50                                    
+Walsh                                     50                                    
+Weiss                                     50                                    
+Whalen                                    10                                    
+Zlotkey                                   80                                    
+
+132 rows selected.
+
+SQL> spool off
