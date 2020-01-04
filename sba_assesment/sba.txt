@@ -1,0 +1,824 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Sat Jan 4 02:00:59 2020
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: hr
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+
+SQL> create table sailors
+  2  ( Sid number PRIMARY KEY,Sname varchar2(20),Rating NUMBER,age number );
+
+Table created.
+
+SQL> DESC SAILORS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER
+ SNAME                                              VARCHAR2(20)
+ RATING                                             NUMBER
+ AGE                                                NUMBER
+
+SQL> CREATE TABLE BOATS (Bid number primary key ,Bname varchar2(20),Color varchar2(20));
+
+Table created.
+
+SQL> desc boats
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BID                                       NOT NULL NUMBER
+ BNAME                                              VARCHAR2(20)
+ COLOR                                              VARCHAR2(20)
+
+
+SQL> create table reserves(sid number,bid number,Day date,
+  2  constraints sail_fk FOREIGN KEY(SID) REFERENCES SAILORS(SID));
+
+Table created.
+
+
+SQL> INSERT INTO SAILORS VALUES(22,'DUSTIN',7,45.0);
+
+1 row created.
+
+SQL> INSERT INTO SAILORS VALUES(29,'BRUTUS',1,33.0);
+
+1 row created.
+
+SQL> INSERT INTO SAILORS VALUES(31,'LUBBER',9,55);
+
+1 row created.
+
+SQL> INSERT INTO SAILORS VALUES(32,'ANDY',8,25.0);
+
+1 row created.
+
+SQL> INSERT INTO SAILORS VALUES(58,'RUSTY',10,35);
+
+1 row created.
+
+
+SQL> INSERT INTO BOATS VALUES(101,'INTERLAKE','BLUE');
+
+1 row created.
+
+SQL> INSERT INTO BOATS VALUES(102,'INTERLAKE','RED');
+
+1 row created.
+
+SQL> INSERT INTO BOATS VALUES(103,'CLIPPER','GREEN');
+
+1 row created.
+
+SQL> INSERT INTO BOATS VALUES(104,'MARINE','RED');
+
+1 row created.
+
+
+SQL> create table reserv(sid number,bid number,Day date,
+  2  PRIMARY KEY(SID,BID), FOREIGN KEY (SID)REFERENCES SAILORS(SID),
+  3   FOREIGN KEY (BID) REFERENCES BOATS(BID));
+
+Table created.
+
+
+SQL> INSERT INTO RESERV VALUES(22,101,'1-JAN-2004');
+
+1 row created.
+
+SQL> INSERT INTO RESERV VALUES(22,102,'1-JAN-2004');
+
+1 row created.
+
+SQL> INSERT INTO RESERV VALUES(22,103,'1-FEB-2004');
+
+1 row created.
+
+SQL> INSERT INTO RESERV VALUES(31,103,'5-MAY-2004');
+
+1 row created.
+
+SQL> INSERT INTO RESERV VALUES(32,104,'7-APR-2005');
+
+1 row created.
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID;
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               GREEN                        22
+DUSTIN               RED                          22
+DUSTIN               BLUE                         22
+LUBBER               GREEN                        31
+ANDY                 RED                          32
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID OR COLOR='RED';
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               RED                          22
+DUSTIN               RED                          22
+DUSTIN               RED                          22
+DUSTIN               RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          22
+BRUTUS               RED                          22
+BRUTUS               RED                          22
+BRUTUS               RED                          31
+BRUTUS               RED                          32
+LUBBER               RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+LUBBER               RED                          22
+LUBBER               RED                          22
+LUBBER               RED                          31
+LUBBER               RED                          32
+ANDY                 RED                          22
+ANDY                 RED                          22
+ANDY                 RED                          22
+ANDY                 RED                          31
+ANDY                 RED                          32
+RUSTY                RED                          22
+RUSTY                RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+RUSTY                RED                          22
+RUSTY                RED                          31
+RUSTY                RED                          32
+DUSTIN               RED                          22
+DUSTIN               RED                          22
+DUSTIN               RED                          22
+DUSTIN               RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          22
+BRUTUS               RED                          22
+BRUTUS               RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+BRUTUS               RED                          31
+BRUTUS               RED                          32
+LUBBER               RED                          22
+LUBBER               RED                          22
+LUBBER               RED                          22
+LUBBER               RED                          31
+LUBBER               RED                          32
+ANDY                 RED                          22
+ANDY                 RED                          22
+ANDY                 RED                          22
+ANDY                 RED                          31
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+ANDY                 RED                          32
+RUSTY                RED                          22
+RUSTY                RED                          22
+RUSTY                RED                          22
+RUSTY                RED                          31
+RUSTY                RED                          32
+DUSTIN               BLUE                         22
+DUSTIN               GREEN                        22
+LUBBER               GREEN                        31
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE COLOR=RED OR S.SID=R.SID AND R.BID=B.BID ';
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID ;
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               BLUE                         22
+DUSTIN               RED                          22
+DUSTIN               GREEN                        22
+LUBBER               GREEN                        31
+ANDY                 RED                          32
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+BRUTUS               RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          31
+BRUTUS               RED                          31
+LUBBER               RED                          31
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+ANDY                 RED                          31
+RUSTY                RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          32
+LUBBER               RED                          32
+ANDY                 RED                          32
+RUSTY                RED                          32
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               RED                          31
+BRUTUS               RED                          31
+LUBBER               RED                          31
+ANDY                 RED                          31
+RUSTY                RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          32
+LUBBER               RED                          32
+RUSTY                RED                          32
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID GROUP BY SID;
+SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID GROUP BY SID
+                                                                                                                        *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID;
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               BLUE                         22
+DUSTIN               RED                          22
+DUSTIN               GREEN                        22
+LUBBER               GREEN                        31
+ANDY                 RED                          32
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+BRUTUS               RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          31
+BRUTUS               RED                          31
+LUBBER               RED                          31
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+ANDY                 RED                          31
+RUSTY                RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          32
+LUBBER               RED                          32
+ANDY                 RED                          32
+RUSTY                RED                          32
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               RED                          31
+BRUTUS               RED                          31
+LUBBER               RED                          31
+ANDY                 RED                          31
+RUSTY                RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          32
+LUBBER               RED                          32
+RUSTY                RED                          32
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME,B.COLOR,R.SID FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID;  
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               BLUE                         22
+DUSTIN               RED                          22
+DUSTIN               GREEN                        22
+LUBBER               GREEN                        31
+ANDY                 RED                          32
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+BRUTUS               RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          31
+BRUTUS               RED                          31
+LUBBER               RED                          31
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+ANDY                 RED                          31
+RUSTY                RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          32
+LUBBER               RED                          32
+ANDY                 RED                          32
+RUSTY                RED                          32
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+DUSTIN               RED                          22
+BRUTUS               RED                          22
+LUBBER               RED                          22
+ANDY                 RED                          22
+RUSTY                RED                          22
+
+SNAME                COLOR                       SID
+-------------------- -------------------- ----------
+DUSTIN               RED                          31
+BRUTUS               RED                          31
+LUBBER               RED                          31
+ANDY                 RED                          31
+RUSTY                RED                          31
+DUSTIN               RED                          32
+BRUTUS               RED                          32
+LUBBER               RED                          32
+RUSTY                RED                          32
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME,B.COLOR FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID;
+
+SNAME                COLOR
+-------------------- --------------------
+DUSTIN               BLUE
+DUSTIN               RED
+DUSTIN               GREEN
+LUBBER               GREEN
+ANDY                 RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+BRUTUS               RED
+
+SNAME                COLOR
+-------------------- --------------------
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+
+SNAME                COLOR
+-------------------- --------------------
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+
+SNAME                COLOR
+-------------------- --------------------
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+
+SNAME                COLOR
+-------------------- --------------------
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+RUSTY                RED
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME,B.COLOR FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID;
+
+SNAME                COLOR
+-------------------- --------------------
+DUSTIN               BLUE
+DUSTIN               RED
+DUSTIN               GREEN
+LUBBER               GREEN
+ANDY                 RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+BRUTUS               RED
+
+SNAME                COLOR
+-------------------- --------------------
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+
+SNAME                COLOR
+-------------------- --------------------
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+
+SNAME                COLOR
+-------------------- --------------------
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+
+SNAME                COLOR
+-------------------- --------------------
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+ANDY                 RED
+RUSTY                RED
+DUSTIN               RED
+BRUTUS               RED
+LUBBER               RED
+RUSTY                RED
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='RED' OR S.SID=R.SID AND R.BID=B.BID;
+
+SNAME
+--------------------
+DUSTIN
+DUSTIN
+DUSTIN
+LUBBER
+ANDY
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+RUSTY
+BRUTUS
+
+SNAME
+--------------------
+LUBBER
+ANDY
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+
+SNAME
+--------------------
+ANDY
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+
+SNAME
+--------------------
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+RUSTY
+
+SNAME
+--------------------
+DUSTIN
+BRUTUS
+LUBBER
+ANDY
+RUSTY
+DUSTIN
+BRUTUS
+LUBBER
+RUSTY
+
+53 rows selected.
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='RED'and S.SID=R.SID AND R.BID=B.BID;
+
+SNAME
+--------------------
+DUSTIN
+ANDY
+
+SQL> select s.sname from sailors s ,boats b ,reserv r where b.Bname is not null and s.sid =r.sid and r.bid=b.bid;
+
+SNAME
+--------------------
+DUSTIN
+DUSTIN
+DUSTIN
+LUBBER
+ANDY
+
+SQL> desc reserv
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER
+ BID                                       NOT NULL NUMBER
+ DAY                                                DATE
+
+SQL> select age from sailors where sname like 'b%b'and len(sname)>=3;
+select age from sailors where sname like 'b%b'and len(sname)>=3
+                                                  *
+ERROR at line 1:
+ORA-00904: "LEN": invalid identifier
+
+
+SQL> select age from sailors where sname like 'b%b'and length(sname)>=3;
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR=('RED','green')and S.SID=R.SID AND R.BID=B.BID;
+SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR=('RED','green')and S.SID=R.SID AND R.BID=B.BID
+                                                             *
+ERROR at line 1:
+ORA-01797: this operator must be followed by ANY or ALL
+
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR=any('RED','green')and S.SID=R.SID AND R.BID=B.BID;
+
+SNAME
+--------------------
+DUSTIN
+ANDY
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR=all('RED','green')and S.SID=R.SID AND R.BID=B.BID;
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='red' and b.color='green' and S.SID=R.SID AND R.BID=B.BID;
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='red'or 'green' and S.SID=R.SID AND R.BID=B.BID;
+SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR='red'or 'green' and S.SID=R.SID AND R.BID=B.BID
+                                                                              *
+ERROR at line 1:
+ORA-00920: invalid relational operator
+
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR in ('red','green') and S.SID=R.SID AND R.BID=B.BID;  
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE B.COLOR=any('Red','Green')and S.SID=R.SID AND R.BID=B.BID;
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red';
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red';
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red'intersection
+  2  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and b1.color='Red'
+  3  ;
+SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red'intersection
+                                                                                                   *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red' Intersection
+  2  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and b1.color='Red' ;
+SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red' Intersection
+                                                                                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red' Intersection
+  2  ;
+SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red' Intersection
+                                                                                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red'
+  2  INTERSECT
+  3  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and b1.color='GREEN' ;
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red'
+  2  INTERSECT
+  3  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and b1.color='GREEN';
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red'
+  2  INTERSECTION
+  3  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and B1.color='GREEN';
+INTERSECTION
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and B.color='Red'
+  2  INTERSECT
+  3  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and B1.color='GREEN';
+
+no rows selected
+
+SQL> SELECT  S.SNAME FROM SAILORS S,BOATS B,RESERV R WHERE S.SID=R.SID AND R.BID=B.BID and b.color='Red'
+  2  INTERSECT
+  3  SELECT  S1.SNAME FROM SAILORS S1,BOATS B1,RESERV R1 WHERE S1.SID=R1.SID AND R1.BID=B1.BID and B1.color='Green';
+
+no rows selected
+
+SQL> desc reserv
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SID                                       NOT NULL NUMBER
+ BID                                       NOT NULL NUMBER
+ DAY                                                DATE
+
+SQL> select* from reserv
+  2  ;
+
+       SID        BID DAY
+---------- ---------- ---------
+        22        101 01-JAN-04
+        22        102 01-JAN-04
+        22        103 01-FEB-04
+        31        103 05-MAY-04
+        32        104 07-APR-05
+
+SQL> select* from boats;
+
+       BID BNAME                COLOR
+---------- -------------------- --------------------
+       101 INTERLAKE            BLUE
+       102 INTERLAKE            RED
+       103 CLIPPER              GREEN
+       104 MARINE               RED
+
+SQL> create or replace trigger t3
+  2  before insert or update or delete on  reserv
+  3  if to_char(sysdate,'ddyy') in('mon','wed') then
+  4  raise_application_error(-20323,'do not work on these days');
+  5  end if;
+  6  end;
+  7  /
+if to_char(sysdate,'ddyy') in('mon','wed') then
+*
+ERROR at line 3:
+ORA-04079: invalid trigger specification
+
+
+SQL> create or replace trigger t3
+  2  before insert or update or delete on  reserv
+  3  begin
+  4  if to_char(sysdate,'dy') in ('mon','wed') then raise_application_error(-20323,'do not');
+  5  end if;
+  6  end;
+  7  /
+
+Trigger created.
+
+SQL>
